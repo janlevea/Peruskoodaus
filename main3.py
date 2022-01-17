@@ -16,7 +16,8 @@ def main():
 
 
 def nayta_ika(h):
-    print(f"Henkilötunnuksen {h} ikä on {h.ika()}")
+    i = h.ika()
+    print("Henkilötunnuksen", h, "ikä on", i)
 
 
 if __name__ == '__main__':
