@@ -26,6 +26,12 @@ class Henkilotunnus:
         else:
             return "Mies"  # pariton = 1, 3, 5, 7, 9
 
+    def onko_nainen(self) -> bool:
+        return self.sukupuoli() == "Nainen"
+
+    def onko_mies(self) -> bool:
+        return not self.onko_nainen()
+
     def syntymapaiva(self) -> datetime.date:
         paivays = datetime.datetime.strptime(self.hetu[:6], "%d%m%y").date()
         vuosisata = VUOSISADAT[self.hetu[6]]  # välimerkki -> vuosisata
