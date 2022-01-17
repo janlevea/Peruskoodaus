@@ -8,7 +8,7 @@ class VakioHetu:
         return 42
 
 
-def main():
+def main() -> None:
     ht = hetu3.Henkilotunnus('200588-777P')
     ht2 = VakioHetu()
     nayta_ika(ht)
