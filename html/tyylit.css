@@ -17,6 +17,18 @@ p {
 h1 {
     font-size: 300%;
     text-align: center;
+    animation: pyoritys 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pyoritys {
+    from {
+        transform: rotate(-10deg);
+    }
+    to {
+        transform: rotate(10deg);
+    }
 }
 
 h2 {
@@ -27,11 +39,10 @@ h2 {
 
 img {
     border: 5px solid green;
-    padding: 10px;
-    margin: 30px;
 }
 
-ol, ul {
+ol,
+ul {
     margin-top: 50px;
 }
 
