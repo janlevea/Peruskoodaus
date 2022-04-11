@@ -2,13 +2,14 @@
 <html>
     <head>
         <title>This is a title</title>
+        <link href="tyylit.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <h1>HTML-perusteita</h1>
 
         <h2>Otsikot</h2>
 
-        Otsikot esitetään tageilla h1--h6.
+        <p class="ohje">Otsikot esitetään tageilla h1--h6.</p>
 
         <h3>Tason 3 otsikko</h3>
         <h3>Toinen tason 3 otsikko</h3>
@@ -16,7 +17,7 @@
 
         <h2>Kappaleet</h2>
 
-        Tekstikappaleen esittämiseen käytetään p-tagia.
+        <p class="ohje">Tekstikappaleen esittämiseen käytetään p-tagia.</p>
 
         <p>
             Tekstiä tekstiä tekstiä tekstiä tekstiä tekstiä tekstiä tekstiä
@@ -25,7 +26,7 @@
 
         <h2>Rivinvaihto</h2>
 
-        Rivinvaihto tehdään tagilla br.
+        <p class="ohje">Rivinvaihto tehdään tagilla br.</p>
 
         <p>
             Joku rivi<br />
@@ -35,14 +36,18 @@
 
         <h2>Lihavointi ja kursivointi</h2>
 
-        Lihavointiin käytetään tagia b ja kursivointiin tagia i.
+        <p class="ohje">
+            Lihavointiin käytetään tagia b ja kursivointiin tagia i.
+        </p>
 
         <p><i>kursivoitu teksti</i> ja <b>lihavoitu teksti</b></p>
 
         <h2>Linkit</h2>
 
-        Linkkejä tehdään tagilla a. Sille tulee attribuutti href, johon
-        annetaan linkin osoite.
+        <p class="ohje">
+            Linkkejä tehdään tagilla a. Sille tulee attribuutti href, johon
+            annetaan linkin osoite.
+        </p>
 
         <p>
             Esimerkiksi <a href="toinen.html">linkin teksti</a> ja sitten voi
@@ -51,7 +56,7 @@
 
         <h2>Kuvat</h2>
 
-        <p>
+        <p class="ohje">
             Kuvan voi lisätä dokumenttii tagilla img, jolle annetaan
             attribuutti src ja siihen tulee kuvan osoite.
         </p>
@@ -62,7 +67,26 @@
         </p>
 
         <p>
-            <img src="kuva.png" alt="Moi"/>
+            <img src="kuva.png" alt="Moi" class="reunustettu" />
         </p>
+
+        <h2>Listat</h2>
+
+        <p class="ohje" style="color: rgb(105, 86, 0)">
+            Numeroidun listan voi tehdä ol-tagilla ja numeroimattoman
+            ul-tagilla. Listan elementit merkitään li-tageilla.
+        </p>
+
+        <ol class="reunustettu">
+            <li>Eka</li>
+            <li>Toka</li>
+            <li>Kolmas</li>
+        </ol>
+
+        <ul>
+            <li>Omena</li>
+            <li>Päärynä</li>
+            <li>Appelsiini</li>
+        </ul>
     </body>
 </html>
