@@ -1,0 +1,32 @@
+/*
+Käännä tämä CSS-tiedostoksi ajamalla:
+
+    npx sass tyyli2.scss tyyli2.css
+
+tai käytä watch-ominaisuutta, että tiedosto käännetään uudestaan aina kun
+siihen tulee muutoksia:
+
+    npx sass --watch tyyli2.scss tyyli2.css
+
+*/
+
+$link-color: #5c0000;
+
+@mixin center-content() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    color: $link-color;
+}
+
+a img {
+    border: 2px solid $link-color;
+}
+
+.ohje {
+    @include center-content();
+    font-size: 20px;
+}
