@@ -6,8 +6,8 @@ from kirjasto import Kirja, Luku
 class TestLaskeSivujenLkm(unittest.TestCase):
     def test_kaksi_lukua(self):
         kirja = Kirja("Testikirja", "Kirjoittaja")
-        kirja.lisaa_luku(1, "Eka", sivuja=20)
-        kirja.lisaa_luku(2, "Toka", sivuja=80)
+        kirja.lisaa_luku("Eka", sivuja=20)
+        kirja.lisaa_luku("Toka", sivuja=80)
 
         tulos = kirja.lasku_sivujen_lkm()
 
@@ -22,7 +22,7 @@ class TestLaskeSivujenLkm(unittest.TestCase):
 
     def test_yksi_luku(self):
         kirja = Kirja("Testikirja", "Kirjoittaja")
-        kirja.lisaa_luku(1, "Luku", sivuja=123)
+        kirja.lisaa_luku("Luku", sivuja=123)
 
         tulos = kirja.lasku_sivujen_lkm()
 
@@ -33,7 +33,7 @@ class TestLisaaLuku(unittest.TestCase):
     def test_yksi_luku(self):
         kirja = Kirja("Testikirja", "Kirjoittaja")
 
-        kirja.lisaa_luku(1, "Testiluku", sivuja=5)
+        kirja.lisaa_luku("Testiluku", sivuja=5)
 
         self.assertEqual(len(kirja.luvut), 1)
         self.assertIsInstance(kirja.luvut[0], Luku)
@@ -44,8 +44,8 @@ class TestLisaaLuku(unittest.TestCase):
     def test_kaksi_lukua(self):
         kirja = Kirja("Testikirja", "Kirjoittaja")
 
-        kirja.lisaa_luku(1, "Testiluku", sivuja=5)
-        kirja.lisaa_luku(2, "Toinen luku", sivuja=10)
+        kirja.lisaa_luku("Testiluku", sivuja=5)
+        kirja.lisaa_luku("Toinen luku", sivuja=10)
 
         self.assertEqual(len(kirja.luvut), 2)
         self.assertIsInstance(kirja.luvut[0], Luku)

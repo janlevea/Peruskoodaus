@@ -4,7 +4,8 @@ class Kirja:
         self.kirjoittaja = kirjoittaja
         self.luvut = []
 
-    def lisaa_luku(self, numero, otsikko, sivuja):
+    def lisaa_luku(self, otsikko, sivuja):
+        numero = len(self.luvut) + 1
         self.luvut.append(
             Luku(
                 numero=numero,
@@ -25,14 +26,14 @@ class Luku:
 
 
 hassu_kirja = Kirja(nimi="Hassukirja", kirjoittaja="Hassu Klovni")
-hassu_kirja.lisaa_luku(1, "Johdanto", sivuja=123)
-hassu_kirja.lisaa_luku(2, "Johtopäätökset", sivuja=222)
+hassu_kirja.lisaa_luku("Johdanto", sivuja=123)
+hassu_kirja.lisaa_luku("Johtopäätökset", sivuja=222)
 
 # tekisi saman kuin alla:
 #  hopo_kirja = Kirja("Höpökirja", "Hiiri Höpönen")
 hopo_kirja = Kirja(nimi="Höpökirja", kirjoittaja="Hiiri Höpönen")
-hopo_kirja.lisaa_luku(1, "Johdanto", sivuja=3)
-hopo_kirja.lisaa_luku(2, "Hei vaan", sivuja=12)
+hopo_kirja.lisaa_luku("Johdanto", sivuja=3)
+hopo_kirja.lisaa_luku("Hei vaan", sivuja=12)
 
 
 hopo_kirja_dictionaryna = {
