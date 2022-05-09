@@ -11,6 +11,8 @@ class Kirja:
     def lisaa_luku(self, otsikko, sivuja, numero=None):
         if numero is None:
             numero = len(self.luvut) + 1
+        if not self.onko_luvun_numero_vapaana(numero):
+            raise NumerointiVirhe(f"Numero varattu: {numero}")
         self.luvut.append(
             Luku(
                 numero=numero,
@@ -18,14 +20,10 @@ class Kirja:
                 sivuja=sivuja,
             )
         )
-        self.tarkista_lukujen_numerointi()
 
-    def tarkista_lukujen_numerointi(self):
-        numerot = set()
-        for luku in self.luvut:
-            if luku.numero in numerot:
-                raise NumerointiVirhe(f"Numero varattu: {luku.numero}")
-            numerot.add(luku.numero)
+    def onko_luvun_numero_vapaana(self, numero):
+        kaytetyt_lukujen_numerot = set(luku.numero for luku in self.luvut)
+        return numero not in kaytetyt_lukujen_numerot
 
     def lasku_sivujen_lkm(self):
         return sum(luku.sivuja for luku in self.luvut)
