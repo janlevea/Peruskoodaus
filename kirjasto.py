@@ -1,0 +1,53 @@
+class Kirja:
+    def __init__(self, nimi, kirjoittaja):
+        self.nimi = nimi
+        self.kirjoittaja = kirjoittaja
+        self.luvut = []
+
+    def lisaa_luku(self, numero, otsikko, sivuja):
+        self.luvut.append(
+            Luku(
+                numero=numero,
+                otsikko=otsikko,
+                sivuja=sivuja,
+            )
+        )
+
+    def lasku_sivujen_lkm(self):
+        return sum(luku.sivuja for luku in self.luvut)
+
+
+class Luku:
+    def __init__(self, numero, otsikko, sivuja):
+        self.numero = numero
+        self.otsikko = otsikko
+        self.sivuja = sivuja
+
+
+hassu_kirja = Kirja(nimi="Hassukirja", kirjoittaja="Hassu Klovni")
+hassu_kirja.lisaa_luku(1, "Johdanto", sivuja=123)
+hassu_kirja.lisaa_luku(2, "Johtopäätökset", sivuja=222)
+
+# tekisi saman kuin alla:
+#  hopo_kirja = Kirja("Höpökirja", "Hiiri Höpönen")
+hopo_kirja = Kirja(nimi="Höpökirja", kirjoittaja="Hiiri Höpönen")
+hopo_kirja.lisaa_luku(1, "Johdanto", sivuja=3)
+hopo_kirja.lisaa_luku(2, "Hei vaan", sivuja=12)
+
+
+hopo_kirja_dictionaryna = {
+    "nimi": "Höpökirja",
+    "kirjoittaja": "Hiiri Höpönen",
+    "luvut": [
+        {
+            "numero": 1,
+            "otsikko": "Johdanto",
+            "sivuja": 3,
+        },
+        {
+            "numero": 2,
+            "otsikko": "Hei vaan",
+            "suvuja": 12,
+        },
+    ]
+}
