@@ -1,3 +1,6 @@
+class NumerointiVirhe(ValueError):
+    pass
+
 class Kirja:
     def __init__(self, nimi, kirjoittaja):
         self.nimi = nimi
@@ -15,6 +18,14 @@ class Kirja:
                 sivuja=sivuja,
             )
         )
+        self.tarkista_lukujen_numerointi()
+
+    def tarkista_lukujen_numerointi(self):
+        numerot = set()
+        for luku in self.luvut:
+            if luku.numero in numerot:
+                raise NumerointiVirhe(f"Numero varattu: {luku.numero}")
+            numerot.add(luku.numero)
 
     def lasku_sivujen_lkm(self):
         return sum(luku.sivuja for luku in self.luvut)
