@@ -99,9 +99,27 @@ def main():
 
 
 
+    # Context manager ja with
 
+    # Tiedoston avaaminen ja sulkeminen ilman
+    # with-lauseketta saattaa jättää tiedoston
+    # auki virheen sattuessa:
+    #
+    # file = open("tiedosto.txt", "wt")
+    # file.write("Moi!\n")
+    # print("hei")
+    # joku_funktio()  # tapahtuu virhe, poikkeus nousee
+    # file.write("Viimeinen rivi\n")  # tätä ei kutsuta...
+    # file.close()  # ...tai tätä, jos aiemmalla rivillä oli poikkeus
 
-
+    # with-lausekkeen avulla tiedosto suljetaan automaattisesti
+    # myös poikkeuksen noustessa:
+    #
+    # with open("tiedosto.txt", "wt") as file:
+    #     file.write("Moi!\n")
+    #     print("hei")
+    #     joku_funktio()
+    #     file.write("Viimeinen rivi\n")
 
 
 
