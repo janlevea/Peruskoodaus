@@ -73,6 +73,22 @@ class TestLisaaLuku(unittest.TestCase):
         self.assertEqual(kirja.luvut[1].numero, 42)
         self.assertEqual(kirja.luvut[2].numero, 3)
 
+    def test_kaksi_samaa_numeroa(self):
+        kirja = Kirja("Testikirja", "Kirjoittaja")
+
+        kirja.lisaa_luku("Testiluku 1", sivuja=5, numero=8)
+        with self.assertRaisesRegex(NumerointiVirhe, "Numero varattu: 8"):
+            kirja.lisaa_luku("Testiluku 2", sivuja=5, numero=8)    
+
+    def test_samalla_numerolla_lisaaminen_ei_lisaa(self):
+        kirja = Kirja("Testikirja", "Kirjoittaja")
+
+        kirja.lisaa_luku("Testiluku 1", sivuja=5, numero=1)
+        with self.assertRaises(NumerointiVirhe):
+            kirja.lisaa_luku("Testiluku 2", sivuja=5, numero=1)
+
+        self.assertEqual(len(kirja.luvut), 1)
+
     def test_automaattinen_numero_tormaa_annettuun(self):
         kirja = Kirja("Testikirja", "Kirjoittaja")
 
@@ -80,7 +96,7 @@ class TestLisaaLuku(unittest.TestCase):
         with self.assertRaisesRegex(NumerointiVirhe, "Numero varattu: 2"):
             kirja.lisaa_luku("Testiluku 2", sivuja=5)         
 
-        # self.assertEqual(len(kirja.luvut), 1)
+        self.assertEqual(len(kirja.luvut), 1)
 
 if __name__ == '__main__':
     unittest.main()
