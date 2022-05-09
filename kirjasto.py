@@ -4,8 +4,10 @@ class Kirja:
         self.kirjoittaja = kirjoittaja
         self.luvut = []
 
-    def lisaa_luku(self, otsikko, sivuja):
-        numero = len(self.luvut) +1
+    def lisaa_luku(self, otsikko, sivuja, numero=None):
+        if numero is None:
+           numero = len(self.luvut) + 1
+
         self.luvut.append(
             Luku(
                 numero=numero,

@@ -55,5 +55,23 @@ class TestLisaaLuku(unittest.TestCase):
         self.assertEqual(kirja.luvut[1].otsikko, "Toinen luku")
         self.assertEqual(kirja.luvut[1].sivuja, 10)
 
+    def test_annettu_numero(self):
+        kirja = Kirja("Testikirja", "Kirjoittaja")
+
+        kirja.lisaa_luku("Testiluku", sivuja=5, numero=42)
+
+        self.assertEqual(kirja.luvut[0].numero, 42)
+
+    def test_automaattinen_numero_ja_annettu_numero(self):
+        kirja = Kirja("Testikirja", "Kirjoittaja")
+
+        kirja.lisaa_luku("Testiluku 1", sivuja=5)
+        kirja.lisaa_luku("Testiluku 2", sivuja=5, numero=42)
+        kirja.lisaa_luku("Testiluku 3", sivuja=5)
+
+        self.assertEqual(kirja.luvut[0].numero, 1)
+        self.assertEqual(kirja.luvut[1].numero, 42)
+        self.assertEqual(kirja.luvut[2].numero, 3)
+
 if __name__ == '__main__':
     unittest.main()
