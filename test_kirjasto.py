@@ -1,6 +1,6 @@
 import unittest
 
-from kirjasto import Kirja, Luku
+from kirjasto import Kirja, Luku, NumerointiVirhe
 
 
 class TestLaskeSivujenLkm(unittest.TestCase):
@@ -74,6 +74,15 @@ class TestLisaaLuku(unittest.TestCase):
         self.assertEqual(kirja.luvut[0].numero, 1)
         self.assertEqual(kirja.luvut[1].numero, 42)
         self.assertEqual(kirja.luvut[2].numero, 3)
+
+    def test_automaattinen_numero_tormaa_annettuun(self):
+        kirja = Kirja("Testikirja", "Kirjoittaja")
+
+        kirja.lisaa_luku("Testiluku 1", sivuja=5, numero=2)
+        with self.assertRaisesRegex(NumerointiVirhe, "Numero varattu: 2"):
+            kirja.lisaa_luku("Testiluku 2", sivuja=5)
+
+        # self.assertEqual(len(kirja.luvut), 1)
 
 
 if __name__ == '__main__':
