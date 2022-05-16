@@ -1,22 +1,20 @@
-import unittest
-
 from henkilo import Henkilo1, Henkilo2
 
 
-class TestaaHenkilo1StringiksiMuunnos(unittest.TestCase):
-    def test_nimi(self):
-        henkilo = Henkilo1(nimi="Jaana", ika=40)
+def test_henkilo1_nimi():
+    henkilo = Henkilo1(nimi="Jaana", ika=40)
 
-        tulos = str(henkilo)
+    tulos = str(henkilo)
 
-        self.assertEqual(tulos, "Jaana")
+    assert tulos == "Jaana"
 
-    def test_tyhja_nimi(self):
-        henkilo = Henkilo1(nimi="", ika=40)
 
-        tulos = str(henkilo)
+def test_henkilo1_tyhja_nimi():
+    henkilo = Henkilo1(nimi="", ika=40)
 
-        self.assertEqual(tulos, "")
+    tulos = str(henkilo)
+
+    assert tulos == ""
 
 
 def test_henkilo2_init():
