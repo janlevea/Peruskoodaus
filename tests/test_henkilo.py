@@ -1,9 +1,9 @@
 import unittest
 
-from henkilo import Henkilo1
+from henkilo import Henkilo1, Henkilo2
 
 
-class TestaaStringiksiMuunnos(unittest.TestCase):
+class TestaaHenkilo1StringiksiMuunnos(unittest.TestCase):
     def test_nimi(self):
         henkilo = Henkilo1(nimi="Jaana", ika=40)
 
@@ -17,3 +17,11 @@ class TestaaStringiksiMuunnos(unittest.TestCase):
         tulos = str(henkilo)
 
         self.assertEqual(tulos, "")
+
+
+def test_henkilo2_init():
+    henkilo = Henkilo2("Etu", "Suku", 1990)
+
+    assert henkilo.etunimi == "Etu"
+    assert henkilo.sukunimi == "Suku"
+    assert henkilo.syntymavuosi == 1990
