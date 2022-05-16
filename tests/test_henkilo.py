@@ -19,3 +19,11 @@ def test_henkilo2_init():
     assert henkilo.etunimi == "Etu"
     assert henkilo.sukunimi == "Suku"
     assert henkilo.syntymavuosi == 1990
+
+
+def test_henkilo2_nimi():
+    henkilo = Henkilo2("Tiina", "Testaaja", 1995)
+    
+    tulos = henkilo.nimi
+
+    assert tulos == "Tiina Testaaja"
