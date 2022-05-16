@@ -1,2 +1,3 @@
 @echo off
-python -m unittest %*
+REM python -m unittest %*
+pytest %*
