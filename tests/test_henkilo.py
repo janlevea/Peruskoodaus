@@ -1,20 +1,15 @@
+import pytest
+
 from henkilo import Henkilo1, Henkilo2
 
 
-def test_henkilo1_nimi():
-    henkilo = Henkilo1(nimi="Jaana", ika=40)
+@pytest.mark.parametrize("teksti", ["", "Jaana"])
+def test_henkilo1_str(teksti):
+    henkilo = Henkilo1(nimi=teksti, ika=40)
 
     tulos = str(henkilo)
 
-    assert tulos == "Jaana"
-
-
-def test_henkilo1_tyhja_nimi():
-    henkilo = Henkilo1(nimi="", ika=40)
-
-    tulos = str(henkilo)
-
-    assert tulos == ""
+    assert tulos == teksti
 
 
 def test_henkilo2_init():
