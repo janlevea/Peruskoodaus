@@ -3,9 +3,10 @@ import pytest
 from henkilo import Henkilo1, Henkilo2
 
 
-@pytest.mark.parametrize("teksti", ["", "Jaana"])
-def test_henkilo1_str(teksti):
-    henkilo = Henkilo1(nimi=teksti, ika=40)
+@pytest.mark.parametrize("teksti", ["", "Jaana", "_"])
+@pytest.mark.parametrize("luku", [0, 40])
+def test_henkilo1_str(teksti, luku):
+    henkilo = Henkilo1(nimi=teksti, ika=luku)
 
     tulos = str(henkilo)
 
