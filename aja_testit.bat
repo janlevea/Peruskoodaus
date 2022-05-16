@@ -1,3 +1,3 @@
 @echo off
 REM python -m unittest %*
-pytest %*
+pytest --cov --cov-report=term-missing %*
